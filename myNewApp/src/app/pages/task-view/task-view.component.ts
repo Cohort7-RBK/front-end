@@ -44,7 +44,10 @@ export class TaskViewComponent implements OnInit {
 
   addTask(form: NgForm) {
     console.log('in component', form.value.text);
-    this.tasksService.addTask(form.value.text, false);
+    this.text = form.value.text;
+    this.tasksService.addTask(this.text, this.isDone).subscribe((res) => {
+      console.log(res);
+    });
     form.resetForm();
   }
 }
