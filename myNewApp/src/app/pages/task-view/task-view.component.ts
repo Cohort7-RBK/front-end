@@ -15,37 +15,39 @@ import { TasksService } from '../todo.service';
 })
 export class TaskViewComponent implements OnInit {
   tasks: Task[] = [];
+  text: any = '';
+  isDone: boolean = false;
   private tasksSub: Subscription | undefined;
 
-  constructor(private tasksService: TasksService) {}
+  constructor(private tasksService: TasksService, router: Router) {
+    // this.getTasks();
+  }
 
   ngOnInit() {
-    this.tasksService.getTasks();
-    this.tasksSub = this.tasksService
-      .getTaskUpdateListener()
-      .subscribe((tasks: Task[]) => {
-        this.tasks = tasks;
+    this.getTasks();
+  }
+
+  deleteTask(taskId: any) {
+    console.log('in component');
+    this.tasksService.deletePost(taskId).subscribe(() => {
+      return this.getTasks();
+    });
+  }
+
+  getTasks() {
+    this.tasksService
+      .getTasks(this.text, this.isDone)
+      .subscribe((response: any) => {
+        this.tasks = response;
       });
   }
 
   addTask(form: NgForm) {
-    if (form.invalid) {
-      return;
-    }
-    this.tasksService.addTask(form.value.title, false);
-    console.log(form.value.title);
+    console.log('in component', form.value.text);
+    this.text = form.value.text;
+    this.tasksService.addTask(this.text, this.isDone).subscribe((res) => {
+      console.log(res);
+    });
     form.resetForm();
-  }
-
-  deleteTask(taskId: string) {
-    this.tasksService.deletePost(taskId);
-  }
-
-  deleteAll() {
-    this.tasksService.deleteAll();
-  }
-
-  updateTask(task: Task) {
-    this.tasksService.updatePost(task.id, task.title, task.isDone);
   }
 }
