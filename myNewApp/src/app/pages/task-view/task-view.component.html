@@ -1,51 +1,62 @@
-<div class="text-info mt-4 text-center mb-3">
-  <h1>Task Manager</h1>
-</div>
-
-<div class="container">
-  <div class="card text-right mb-3 taskform" id="card" style="width: 25rem">
-    <div class="card-body">
-      <form (submit)="addTask(TaskForm)" #TaskForm="ngForm">
-        <input
-          type="text"
-          name="text"
-          ngModel=""
-          required
-          minlength="6"
-          class="form-control mb-3"
-          id="taskInput"
-          placeholder="Enter Task"
-        />
-        <button type="submit" class="btn btn-info">Save</button>
-        <button type="button" class="btn btn-danger ml-1">Delete All</button>
-      </form>
-    </div>
+<div class="center">
+  <div class="center">
+    <h1>Task Manager</h1>
   </div>
-
-  <div class="tasklist">
-    <div class="task-list" *ngIf="tasks.length > 0">
-      <div
-        class="row ml-1 mt-1"
-        style="width: 25rem"
-        *ngFor="let task of tasks"
-      >
-        <div class="col-sm-1">
-          <input type="checkbox" [checked]="task.isDone" />
-        </div>
-        <div class="col-sm-8">
-          {{ task.text }}
-        </div>
-        <div class="col-sm-3">
-          <button
-            type="button"
-            (click)="deleteTask(task._id)"
-            class="btn btn-danger"
-          >
-            Delete
-          </button>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <body>
+    <div id="child" class="center">
+      <div class="card text-right mb-3 taskform" id="card" style="width: 25rem">
+        <div class="card-body">
+          <form (submit)="addTask(TaskForm)" #TaskForm="ngForm">
+            <input
+              type="text"
+              name="text"
+              ngModel=""
+              required
+              minlength="6"
+              class="form-control mb-3"
+              id="taskInput"
+              placeholder="Enter Task"
+            />
+            <button type="submit" class="btn btn-info">Save</button>
+            <button type="button" class="btn btn-danger ml-1">
+              Delete All
+            </button>
+          </form>
         </div>
       </div>
+
+      <div class="tasklist">
+        <div class="task-list" *ngIf="tasks.length > 0">
+          <div
+            class="row ml-1 mt-1"
+            style="width: 25rem"
+            *ngFor="let task of tasks"
+          >
+            <div class="col-sm-1">
+              <input type="checkbox" [checked]="task.isDone" />
+            </div>
+            <div class="col-sm-8">
+              {{ task.text }}
+            </div>
+            <div class="col-sm-3">
+              <button
+                type="button"
+                (click)="deleteTask(task._id)"
+                class="btn btn-danger"
+              >
+                <i class="fa fa-trash"></i>
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="info-text tasklist" *ngIf="tasks.length <= 0">No Tasks</p>
     </div>
-  </div>
-  <p class="info-text tasklist" *ngIf="tasks.length <= 0">No Tasks</p>
+  </body>
 </div>

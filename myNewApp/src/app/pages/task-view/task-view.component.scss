@@ -8,7 +8,6 @@
     outline: 0;
   }
 }
-
 .todo-item {
   margin-bottom: 12px;
   display: flex;
@@ -16,6 +15,10 @@
   justify-content: space-between;
   animation-duration: 0.3s;
 }
+
+// .center {
+//   position: relative;
+// }
 
 .remove-item {
   cursor: pointer;
@@ -26,7 +29,6 @@
 }
 
 .todo-item-left {
-  // later
   display: flex;
   align-items: center;
 }
@@ -79,6 +81,17 @@ button {
     outline: none;
   }
 }
+* {
+  box-sizing: border-box;
+}
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+div {
+  font-size: 110%;
+}
 
 .active {
   background: lightgreen;
@@ -88,6 +101,9 @@ button {
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.2s;
+}
+body {
+  background-color: cadetblue;
 }
 
 .fade-enter,
