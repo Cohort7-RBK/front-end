@@ -1,3 +1,6 @@
+<app-navbar-admin *ngIf="role === 'admin'"></app-navbar-admin>
+<app-navbar-student *ngIf="role === 'student'"></app-navbar-student>
+<app-navbar-teacher *ngIf="role === 'teacher'"></app-navbar-teacher>
 <div class="container">
   <button class="btn btn-warning" (click)="countYellow($event)">
     yellow avertisment
