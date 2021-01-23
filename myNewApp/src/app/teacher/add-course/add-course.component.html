@@ -1,24 +1,39 @@
+<app-navbar-admin *ngIf="role === 'admin'"></app-navbar-admin>
+<app-navbar-student *ngIf="role === 'student'"></app-navbar-student>
+<app-navbar-teacher *ngIf="role === 'teacher'"></app-navbar-teacher>
+
 <div id="container">
   <h3>Add New Course</h3>
 
-    <form [formGroup]="addCourseForm">
-      <label for="fname">Title : </label>
-      <input
-        type="text"
-        id="fname"
-        name="firstname"
-        placeholder="The Course Title ..."
-        formControlName="title"
-        class="form-control"
-        />
-      <br/><br/>
-      <label for="lecture">Lecture : </label>
-      <input type="file" id="lname" name="lecture" multiple formControlName='lecture'/>
-      <br/><br/>
-      <label for="homework">Homework : </label>
-      <input type="file" id="lname" name="homework" multiple formControlName='homework'/>
-      <br/><br/>
-      <input type="submit" value="Submit" (click)="addCourse()"/>
-    </form>
-
+  <form [formGroup]="addCourseForm">
+    <label for="fname">Title : </label>
+    <input
+      type="text"
+      id="fname"
+      name="firstname"
+      placeholder="The Course Title ..."
+      formControlName="title"
+      class="form-control"
+    />
+    <br /><br />
+    <label for="lecture">Lecture : </label>
+    <input
+      type="file"
+      id="lname"
+      name="lecture"
+      multiple
+      formControlName="lecture"
+    />
+    <br /><br />
+    <label for="homework">Homework : </label>
+    <input
+      type="file"
+      id="lname"
+      name="homework"
+      multiple
+      formControlName="homework"
+    />
+    <br /><br />
+    <input type="submit" value="Submit" (click)="addCourse()" />
+  </form>
 </div>
