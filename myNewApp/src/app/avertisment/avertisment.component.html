@@ -1,0 +1,32 @@
+<div class="container">
+  <button class="btn btn-warning" (click)="countYellow($event)">
+    yellow avertisment
+  </button>
+  <button class="btn btn-danger" (click)="countRead($event)">
+    read avertisment
+  </button>
+  <button
+    type="button"
+    class="btn btn-outline-warning"
+    (click)="countDeletYellow($event)"
+  >
+    delet yellow avertisment
+  </button>
+  <button
+    type="button"
+    class="btn btn-outline-danger"
+    (click)="countDeletRead($event)"
+  >
+    Delet Read Avertisment
+  </button>
+  <table class="table table-bordered">
+    <tr>
+      <td>yellow avertisment:</td>
+      <td>{{ student.yellowAvertisment }}</td>
+    </tr>
+    <tr>
+      <td>read avertisment:</td>
+      <td>{{ student.readAvertisment }}</td>
+    </tr>
+  </table>
+</div>
