@@ -34,11 +34,7 @@ export class AddCourseComponent implements OnInit {
         homework : this.addCourseForm.value.homework};
       this.service
       .addService(obj)
-      .subscribe(() => {
-        this.router.navigate(['/']).then(() => {
-          location.reload();
-        });
-      });
+      
      }
 
 
