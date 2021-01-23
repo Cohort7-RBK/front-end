@@ -37,7 +37,6 @@ import { LoginComponent } from './login/login.component';
 import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
 import { NavbarStudentComponent } from './navbar-student/navbar-student.component';
 import { NavbarTeacherComponent } from './navbar-teacher/navbar-teacher.component';
-
 import { TrackingStudentComponent } from './components/tracking-student/tracking-student.component';
 import { GradeComponent } from './components/grade/grade.component';
 import { MatTableModule } from '@angular/material/table';
