@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { environment } from 'src/environments/environment';
+
+
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor() {
-    console.log(`${environment.apiUrl}/api/user`);
-  }
+
   title = 'myNewApp';
 }
+
