@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    </style>
+  </head>
+  <body>
+    <app-navbar-admin *ngIf="admin !==null"></app-navbar-admin>
+<app-navbar-student *ngIf="student !== null"></app-navbar-student>
+<app-navbar-teacher  *ngIf="teacher !== null"></app-navbar-teacher>
+
+    <table>
+      <tr>
+        <th>Materiel</th>
+        <th>Grade</th>
+        <th>Average</th>
+      </tr>
+      <tr *ngFor="let grade of grades">
+        <td>{{ grade.grade["materiel"] }}</td>
+        <td>{{ grade.grade["note"] }}</td>
+      </tr>
+      <tr>
+        <td>Average</td>
+        <td>{{ average }}</td>
+      </tr>
+    </table>
+  </body>
+</html>

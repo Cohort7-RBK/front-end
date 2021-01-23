@@ -37,6 +37,11 @@ import { LoginComponent } from './login/login.component';
 import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
 import { NavbarStudentComponent } from './navbar-student/navbar-student.component';
 import { NavbarTeacherComponent } from './navbar-teacher/navbar-teacher.component';
+
+import { TrackingStudentComponent } from './components/tracking-student/tracking-student.component';
+import { GradeComponent } from './components/grade/grade.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { APP_BASE_HREF } from '@angular/common';
 
 @NgModule({
@@ -62,9 +67,13 @@ import { APP_BASE_HREF } from '@angular/common';
     NavbarAdminComponent,
     NavbarStudentComponent,
     NavbarTeacherComponent,
+    TrackingStudentComponent,
+    GradeComponent,
     AnnouncementsComponent,
   ],
   imports: [
+    MatPaginatorModule,
+    MatTableModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -75,10 +84,9 @@ import { APP_BASE_HREF } from '@angular/common';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    ScheduleModule,
-    RecurrenceEditorModule,
+    HttpClientModule
   ],
+
   providers: [
     DayService,
     WeekService,
@@ -86,7 +94,10 @@ import { APP_BASE_HREF } from '@angular/common';
     MonthService,
     MonthAgendaService,
     { provide: APP_BASE_HREF, useValue: '/' },
+    ScheduleModule,
+    RecurrenceEditorModule,
   ],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}

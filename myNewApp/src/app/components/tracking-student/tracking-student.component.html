@@ -1,0 +1,42 @@
+<app-navbar-admin *ngIf="role === 'admin'"></app-navbar-admin>
+<app-navbar-student *ngIf="role === 'student'"></app-navbar-student>
+<app-navbar-teacher *ngIf="role === 'teacher'"></app-navbar-teacher>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef>First name</th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        click()="getGrade(element.position)"
+      >
+        {{ element.firstName }}
+      </td>
+    </ng-container>
+
+    <!-- Last name Column -->
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef>Last name</th>
+      <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="classe">
+      <th mat-header-cell *matHeaderCellDef>Classe</th>
+      <td mat-cell *matCellDef="let element">{{ element.classe }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5]" showFirstLastButtons></mat-paginator>
+</div>
