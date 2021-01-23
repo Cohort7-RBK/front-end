@@ -13,6 +13,7 @@ import { AllschedulesComponent } from './components/allschedules/allschedules.co
 import { LoginComponent } from './login/login.component';
 import { ListOfStudentComponent } from './list-of-student/list-of-student.component';
 import { NavbarStudentComponent } from './navbar-student/navbar-student.component';
+import { AllCoursesComponent } from './admin/all-courses/all-courses.component';
 import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
 import { NavbarTeacherComponent } from './navbar-teacher/navbar-teacher.component';
 import { AnnouncementsComponent } from './announcements/announcements.component';
@@ -37,6 +38,7 @@ const Routes = [
     path: 'allschedules',
     component: AllschedulesComponent,
   },
+  { path: 'allCourses', component: AllCoursesComponent },
   {
     path: '',
     component: LoginComponent,
